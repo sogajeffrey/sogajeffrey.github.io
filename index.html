@@ -1,91 +1,363 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeff Su | Principal DevOps Engineer</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            darkBg: '#0f172a', /* slate-900 */
-                            cardBg: '#1e293b', /* slate-800 */
-                            accent: '#38bdf8', /* sky-400 */
-                            textMain: '#f8fafc', /* slate-50 */
-                            textMuted: '#94a3b8' /* slate-400 */
-                        }
-                    }
-                }
-            }
+    <title>Jeffrey Su | Principal DevOps Engineer</title>
+    
+    <style>
+        /* Modern Dark Theme Reset & Variable Declarations */
+        :root {
+            --bg-main: #0f172a;     /* Deep Slate */
+            --bg-card: #1e293b;     /* Card Slate */
+            --accent: #38bdf8;      /* Sky Blue */
+            --text-main: #f8fafc;   /* White-ish */
+            --text-muted: #94a3b8;  /* Muted Gray */
+            --border: #334155;
         }
-    </script>
-    <!-- FontAwesome for clean icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="bg-brand-darkBg text-brand-textMain font-sans antialiased selection:bg-brand-accent selection:text-brand-darkBg">
 
-    <!-- Hero Section -->
-    <header class="min-h-screen flex flex-col justify-center items-center px-6 relative border-b border-slate-800">
-        <div class="max-w-4xl text-center space-y-6">
-            <div class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-brand-accent bg-sky-500/10 rounded-full uppercase">
-                Available for Technical Advisory & Collaborations
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                Jeffrey Su
-            </h1>
-            <p class="text-xl md:text-2xl text-brand-accent font-medium max-w-2xl mx-auto">
-                Principal DevOps Engineer
-            </p>
-            <p class="text-base md:text-lg text-brand-textMuted max-w-2xl mx-auto leading-relaxed">
-                Bridging the gap between core software engineering, massive infrastructure scale, and rigorous enterprise security platform design. Over a decade of proven experience building automated environments.
-            </p>
-            
-            <!-- Contact & Social Badges -->
-            <div class="flex flex-wrap justify-center gap-4 pt-4">
-                <a href="https://www.linkedin.com/in/jeffreyjsu" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-brand-cardBg hover:bg-slate-700 border border-slate-700 rounded-lg text-sm font-medium transition-colors">
-                    <i class="fa-brands fa-linkedin text-brand-accent"></i> LinkedIn
-                </a>
-            </div>
-        </div>
-        
-        <!-- Subtle Scroll Down Indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-brand-textMuted animate-bounce">
-            <a href="#experience" aria-label="Scroll to experience"><i class="fa-solid fa-chevron-down text-xl"></i></a>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            antialiased: true;
+        }
+
+        /* Hero Setup */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            background-color: rgba(56, 189, 248, 0.1);
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        @media (min-width: 768px) { h1 { font-size: 4.5rem; } }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .lead-text {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 42rem;
+            line-height: 1.75;
+            margin: 0 auto 2rem auto;
+        }
+
+        .ln-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .ln-button:hover {
+            background-color: #334155;
+            border-color: var(--text-muted);
+        }
+
+        /* Main Content Layout */
+        main {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title span {
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 1.25rem;
+        }
+
+        .title-bar {
+            height: 4px;
+            width: 3rem;
+            background-color: var(--accent);
+            border-radius: 2px;
+            margin-bottom: 3rem;
+        }
+
+        /* Timeline / Experience Structure */
+        .timeline {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--border);
+        }
+
+        .role-block {
+            position: relative;
+            margin-bottom: 3.5rem;
+        }
+
+        .role-block::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            border: 4px solid var(--bg-main);
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+        }
+
+        .card-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .card-header { flex-direction: row; align-items: center; }
+        }
+
+        .role-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .company-name {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .date-badge {
+            font-family: monospace;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--bg-main);
+            color: var(--text-muted);
+            border-radius: 9999px;
+            align-self: flex-start;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+        }
+
+        li {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Matrix Grid Structure */
+        .grid {
+            display: grid;
+            grid-template-columns: 1xl;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .skill-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .skill-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: bold;
+        }
+
+        .skill-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Split Section Setup */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) { .split-container { grid-template-columns: 1fr 1fr; } }
+
+        .split-block h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.375rem 0.75rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: #e2e8f0;
+            border-radius: 0.5rem;
+        }
+
+        .edu-sub {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-family: monospace;
+            margin-top: 0.25rem;
+        }
+
+        .edu-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer Accent */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer-pipeline {
+            font-family: monospace;
+            color: #475569;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">Available for Technical Advisory &amp; Collaborations</div>
+        <h1>Jeffrey Su</h1>
+        <p class="subtitle">Principal DevOps Engineer</p>
+        <p class="lead-text">
+            Bridging the gap between core software engineering, massive infrastructure scale, and rigorous enterprise security platform design. Over a decade of proven experience building automated environments.
+        </p>
+        <div>
+            <a href="https://www.linkedin.com/in/jeffreyjsu" target="_blank" rel="noopener noreferrer" class="ln-button">
+                Connect on LinkedIn
+            </a>
         </div>
     </header>
 
-    <!-- Main Content Grid -->
-    <main class="max-w-5xl mx-auto px-6 py-20 space-y-24">
+    <main>
 
-        <!-- Experience Section -->
-        <section id="experience" class="space-y-10">
-            <div class="space-y-2">
-                <h2 class="text-3xl font-bold tracking-tight text-white flex items-center gap-3">
-                    <span class="text-brand-accent font-mono text-xl">01.</span> Professional Timeline
-                </h2>
-                <div class="h-1 w-12 bg-brand-accent rounded"></div>
-            </div>
+        <section id="experience">
+            <h2 class="section-title"><span>01.</span> Professional Timeline</h2>
+            <div class="title-bar"></div>
 
-            <div class="space-y-12 relative before:absolute before:inset-0 before:left-4 before:md:left-6 before:w-0.5 before:bg-slate-800">
+            <div class="timeline">
 
-                <!-- Role: Zoom -->
-                <div class="relative pl-12 md:pl-16 group">
-                    <div class="absolute left-2.5 md:left-4.5 top-1.5 w-3.5 h-3.5 bg-brand-accent rounded-full border-4 border-brand-darkBg group-hover:scale-125 transition-transform"></div>
-                    <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 md:p-8 space-y-4 hover:border-slate-700 transition-colors">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <div class="role-block">
+                    <div class="card">
+                        <div class="card-header">
                             <div>
-                                <h3 class="text-xl font-bold text-white">Principal DevOps Engineer</h3>
-                                <p class="text-brand-accent font-medium text-sm">Zoom</p>
+                                <h3 class="role-title">Principal DevOps Engineer</h3>
+                                <p class="company-name">Zoom</p>
                             </div>
-                            <span class="text-xs font-mono px-3 py-1 bg-slate-900 text-brand-textMuted rounded-full self-start md:self-center">
-                                2021 - Present
-                            </span>
+                            <span class="date-badge">2021 - Present</span>
                         </div>
-                        <ul class="space-y-2.5 text-sm text-brand-textMuted list-disc pl-4 leading-relaxed">
+                        <ul>
                             <li>Formulated and executed Zoom’s enterprise-wide Secrets Management Strategy, securing critical multi-cloud global infrastructure across AWS, GCP, Azure, and OCI platforms.</li>
                             <li>Managed and scaled engineering teams responsible for deploying and safeguarding Zoom’s core End-to-End Encryption (E2EE) frameworks, including Keyserver, Locator, and PKI Broker systems.</li>
                             <li>Architected resilient, unified continuous delivery (CD) platforms and high-availability systems to bolster platform reliability for millions of concurrent communication points.</li>
@@ -93,60 +365,48 @@
                     </div>
                 </div>
 
-                <!-- Role: GE Digital Staff -->
-                <div class="relative pl-12 md:pl-16 group">
-                    <div class="absolute left-2.5 md:left-4.5 top-1.5 w-3.5 h-3.5 bg-brand-accent rounded-full border-4 border-brand-darkBg group-hover:scale-125 transition-transform"></div>
-                    <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 md:p-8 space-y-4 hover:border-slate-700 transition-colors">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <div class="role-block">
+                    <div class="card">
+                        <div class="card-header">
                             <div>
-                                <h3 class="text-xl font-bold text-white">Staff / Senior DevOps Engineer</h3>
-                                <p class="text-brand-accent font-medium text-sm">GE Digital</p>
+                                <h3 class="role-title">Staff / Senior DevOps Engineer</h3>
+                                <p class="company-name">GE Digital</p>
                             </div>
-                            <span class="text-xs font-mono px-3 py-1 bg-slate-900 text-brand-textMuted rounded-full self-start md:self-center">
-                                2020 - 2021
-                            </span>
+                            <span class="date-badge">2020 - 2021</span>
                         </div>
-                        <ul class="space-y-2.5 text-sm text-brand-textMuted list-disc pl-4 leading-relaxed">
+                        <ul>
                             <li>Acted as Technical Lead for an international engineering cohort running the core Kubernetes and Cloud Foundry orchestration layers for flagship industrial platforms (APM/OPM).</li>
                             <li>Managed and provisions core shared service footprints including RabbitMQ, Redis, and centralized ELK stack topologies.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Role: Workday -->
-                <div class="relative pl-12 md:pl-16 group">
-                    <div class="absolute left-2.5 md:left-4.5 top-1.5 w-3.5 h-3.5 bg-brand-accent rounded-full border-4 border-brand-darkBg group-hover:scale-125 transition-transform"></div>
-                    <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 md:p-8 space-y-4 hover:border-slate-700 transition-colors">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <div class="role-block">
+                    <div class="card">
+                        <div class="card-header">
                             <div>
-                                <h3 class="text-xl font-bold text-white">DevOps Engineer</h3>
-                                <p class="text-brand-accent font-medium text-sm">Workday</p>
+                                <h3 class="role-title">DevOps Engineer</h3>
+                                <p class="company-name">Workday</p>
                             </div>
-                            <span class="text-xs font-mono px-3 py-1 bg-slate-900 text-brand-textMuted rounded-full self-start md:self-center">
-                                2019 - 2020
-                            </span>
+                            <span class="date-badge">2019 - 2020</span>
                         </div>
-                        <ul class="space-y-2.5 text-sm text-brand-textMuted list-disc pl-4 leading-relaxed">
+                        <ul>
                             <li>Owned compilation, configuration management, and system infrastructure deployments for mission-critical core server components powering the Workday UI Platform.</li>
                             <li>Engineered automated multi-platform continuous integration release pipelines for the enterprise Workday iOS and Android ecosystems.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Role: GE Digital Legacy -->
-                <div class="relative pl-12 md:pl-16 group">
-                    <div class="absolute left-2.5 md:left-4.5 top-1.5 w-3.5 h-3.5 bg-brand-accent rounded-full border-4 border-brand-darkBg group-hover:scale-125 transition-transform"></div>
-                    <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 md:p-8 space-y-4 hover:border-slate-700 transition-colors">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <div class="role-block">
+                    <div class="card">
+                        <div class="card-header">
                             <div>
-                                <h3 class="text-xl font-bold text-white">DevOps & Software Engineer (Leadership Program Graduate)</h3>
-                                <p class="text-brand-accent font-medium text-sm">GE Digital</p>
+                                <h3 class="role-title">DevOps &amp; Software Engineer (Leadership Program Graduate)</h3>
+                                <p class="company-name">GE Digital</p>
                             </div>
-                            <span class="text-xs font-mono px-3 py-1 bg-slate-900 text-brand-textMuted rounded-full self-start md:self-center">
-                                2015 - 2019
-                            </span>
+                            <span class="date-badge">2015 - 2019</span>
                         </div>
-                        <ul class="space-y-2.5 text-sm text-brand-textMuted list-disc pl-4 leading-relaxed">
+                        <ul>
                             <li>Scaled a unified global CI/CD continuous integration infrastructure leveraging declarative pipeline-as-code models servicing up to 300,000+ corporate nodes.</li>
                             <li>Utilized programmatic Terraform scripts and Ansible configurations to automatically stand up production and development fabrics maintaining 99.99% operational uptime.</li>
                             <li>Rotated via the prestigious Software Engineering Leadership Program (SELP), developing backend Time-Series and BLOB data management microservices.</li>
@@ -157,110 +417,81 @@
             </div>
         </section>
 
-        <!-- Technical Capabilities Matrix Section -->
-        <section id="skills" class="space-y-10">
-            <div class="space-y-2">
-                <h2 class="text-3xl font-bold tracking-tight text-white flex items-center gap-3">
-                    <span class="text-brand-accent font-mono text-xl">02.</span> Core Capabilities Matrix
-                </h2>
-                <div class="h-1 w-12 bg-brand-accent rounded"></div>
-            </div>
+        <section id="skills">
+            <h2 class="section-title"><span>02.</span> Core Capabilities Matrix</h2>
+            <div class="title-bar"></div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 space-y-3">
-                    <div class="text-brand-accent text-2xl"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3 class="text-lg font-bold text-white">Secrets & DevSecOps</h3>
-                    <p class="text-xs text-brand-textMuted leading-relaxed">
-                        HashiCorp Vault, Cloud Secrets Managers, Enterprise PKI Brokers, E2EE Security Architecture orchestration.
-                    </p>
+            <div class="grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🔒</div>
+                    <h3 class="skill-title">Secrets &amp; DevSecOps</h3>
+                    <p class="skill-desc">HashiCorp Vault, Cloud Secrets Managers, Enterprise PKI Brokers, E2EE Security Architecture orchestration.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 space-y-3">
-                    <div class="text-brand-accent text-2xl"><i class="fa-solid fa-cloud"></i></div>
-                    <h3 class="text-lg font-bold text-white">Cloud Ecosystems</h3>
-                    <p class="text-xs text-brand-textMuted leading-relaxed">
-                        Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, Oracle Cloud Infrastructure (OCI).
-                    </p>
+                <div class="skill-card">
+                    <div class="skill-icon">☁️</div>
+                    <h3 class="skill-title">Cloud Ecosystems</h3>
+                    <p class="skill-desc">Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, Oracle Cloud Infrastructure (OCI).</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 space-y-3">
-                    <div class="text-brand-accent text-2xl"><i class="fa-solid fa-cubes"></i></div>
-                    <h3 class="text-lg font-bold text-white">Orchestration & Systems</h3>
-                    <p class="text-xs text-brand-textMuted leading-relaxed">
-                        Kubernetes (EKS), Cloud Foundry, Ubuntu, CentOS, AlmaLinux systems maintenance.
-                    </p>
+                <div class="skill-card">
+                    <div class="skill-icon">⎈</div>
+                    <h3 class="skill-title">Orchestration &amp; Systems</h3>
+                    <p class="skill-desc">Kubernetes (EKS), Cloud Foundry, Ubuntu, CentOS, AlmaLinux systems maintenance.</p>
                 </div>
-                <!-- Card 4 -->
-                <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 space-y-3">
-                    <div class="text-brand-accent text-2xl"><i class="fa-solid fa-code"></i></div>
-                    <h3 class="text-lg font-bold text-white">Languages & Automation</h3>
-                    <p class="text-xs text-brand-textMuted leading-relaxed">
-                        Python, Golang, Backend Java, Advanced Scripting, Configuration management structures.
-                    </p>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3 class="skill-title">Languages &amp; Automation</h3>
+                    <p class="skill-desc">Python, Golang, Backend Java, Advanced Scripting, Configuration management structures.</p>
                 </div>
-                <!-- Card 5 -->
-                <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 space-y-3">
-                    <div class="text-brand-accent text-2xl"><i class="fa-solid fa-terminal"></i></div>
-                    <h3 class="text-lg font-bold text-white">Infrastructure as Code</h3>
-                    <p class="text-xs text-brand-textMuted leading-relaxed">
-                        HashiCorp Terraform configuration, Ansible dynamic playbooks, automated environmental drift prevention systems.
-                    </p>
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3 class="skill-title">Infrastructure as Code</h3>
+                    <p class="skill-desc">HashiCorp Terraform configuration, Ansible dynamic playbooks, automated environmental drift prevention systems.</p>
                 </div>
-                <!-- Card 6 -->
-                <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 space-y-3">
-                    <div class="text-brand-accent text-2xl"><i class="fa-solid fa-diagram-project"></i></div>
-                    <h3 class="text-lg font-bold text-white">Continuous Integration</h3>
-                    <p class="text-xs text-brand-textMuted leading-relaxed">
-                        Scalable Jenkins topologies, Pipeline-as-Code execution, multi-platform artifact distribution patterns.
-                    </p>
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <h3 class="skill-title">Continuous Integration</h3>
+                    <p class="skill-desc">Scalable Jenkins topologies, Pipeline-as-Code execution, multi-platform artifact distribution patterns.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Education / Additional Context Section -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- Education Box -->
-            <div class="space-y-6">
-                <div class="space-y-2">
-                    <h2 class="text-2xl font-bold tracking-tight text-white">Education & Foundations</h2>
-                    <div class="h-1 w-12 bg-brand-accent rounded"></div>
-                </div>
-                <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 space-y-4">
-                    <div>
-                        <h4 class="text-md font-bold text-white">San Jose State University</h4>
-                        <p class="text-xs text-brand-accent font-mono">B.S. Computer Science</p>
+        <section class="split-container">
+            <div class="split-block">
+                <h2>Education &amp; Foundations</h2>
+                <div class="title-bar" style="margin-bottom: 1.5rem;"></div>
+                <div class="card">
+                    <div class="edu-item">
+                        <h4 style="font-weight: 600;">San Jose State University</h4>
+                        <p class="edu-sub">B.S. Computer Science</p>
                     </div>
-                    <div>
-                        <h4 class="text-md font-bold text-white">GE Crotonville Academy</h4>
-                        <p class="text-xs text-brand-textMuted">Organizational Leadership Development Certificate</p>
+                    <div class="edu-item" style="margin-top: 1rem;">
+                        <h4 style="font-weight: 600;">GE Crotonville Academy</h4>
+                        <p style="font-size: 0.75rem; color: var(--text-muted);">Organizational Leadership Development Certificate</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Global Communication Spoke -->
-            <div class="space-y-6">
-                <div class="space-y-2">
-                    <h2 class="text-2xl font-bold tracking-tight text-white">Linguistic Scope</h2>
-                    <div class="h-1 w-12 bg-brand-accent rounded"></div>
-                </div>
-                <div class="bg-brand-cardBg border border-slate-800 rounded-xl p-6 flex flex-wrap gap-2.5">
-                    <span class="text-xs font-medium px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-200 rounded-lg">English (Native)</span>
-                    <span class="text-xs font-medium px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-200 rounded-lg">Mandarin Chinese (Bilingual)</span>
-                    <span class="text-xs font-medium px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-200 rounded-lg">Taiwanese</span>
-                    <span class="text-xs font-medium px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-200 rounded-lg">Korean</span>
-                    <span class="text-xs font-medium px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-200 rounded-lg">Japanese</span>
+            <div class="split-block">
+                <h2>Linguistic Scope</h2>
+                <div class="title-bar" style="margin-bottom: 1.5rem;"></div>
+                <div class="card" style="padding: 1.5rem;">
+                    <div class="tag-container">
+                        <div class="tag">English (Native)</div>
+                        <div class="tag">Mandarin Chinese (Bilingual)</div>
+                        <div class="tag">Taiwanese</div>
+                        <div class="tag">Korean</div>
+                        <div class="tag">Japanese</div>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="border-t border-slate-800 py-10 px-6 text-center text-xs text-brand-textMuted space-y-2">
+    <footer>
         <p>&copy; 2026 Jeffrey Su. All rights reserved.</p>
-        <p class="font-mono text-slate-600 flex items-center justify-center gap-2">
-            <i class="fa-solid fa-code-branch text-brand-accent/40"></i> 
-            <span>Built with Tailwind CSS &bull; Deployed via Cloudflare Workers</span>
+        <p class="footer-pipeline">
+            ⚡ Static Pure HTML Design &bull; Deployed via Cloudflare
         </p>
     </footer>
 
